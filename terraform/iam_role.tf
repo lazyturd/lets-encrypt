@@ -44,7 +44,7 @@ module "cert_manager_irsa_role" {
     version = "5.2.0"
 
     role_name = "cert-manager"
-    attache_cert_manager_policy = true
+    attach_cert_manager_policy = true
     cert_manager_hosted_zone_arns = ["arn:aws:route53:::hostedzone/Z0600261OY5QAKYH2M34"]
 
     oidc_providers = {

@@ -13,25 +13,25 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init"
-                        // sh "terraform apply --auto-approve"
-                        sh "terraform destroy --auto-approve"
+                        sh "terraform apply --auto-approve"
+                        // sh "terraform destroy --auto-approve"
                     }
                 } 
             }
         }
-        // stage('deploy socks-shop') {
-        //     steps {
-        //         // 
-        //         script {
-        //             script {
-        //                 dir('example') {
-        //                     sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-        //                     sh "kubectl apply -f clusterIssuerStage.yml"
-        //                     sh "kubectl apply -f nginx-deployment.yaml"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('deploy socks-shop') {
+            steps {
+                // 
+                script {
+                    script {
+                        dir('example') {
+                            sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                            sh "kubectl apply -f clusterIssuerStage.yml"
+                            sh "kubectl apply -f nginx-deployment.yaml"
+                        }
+                    }
+                }
+            }
+        }
     }
 }

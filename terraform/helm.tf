@@ -7,21 +7,21 @@ resource "helm_release" "cert_manager" {
   namespace = "kube-system"
 
 
-  set {
-    name  = "wait-for"
-    value = module.cert_manager_irsa_role.iam_roles_arn
+  # set {
+  #   name  = "wait-for"
+  #   value = module.cert_manager_irsa_role.iam_roles_arn
 
-  }
+  # }
 
   set {
     name  = "installCRDs"
     value = "true"
   }
 
-  set {
-    name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
-    value = module.cert_manager_irsa_role.iam_roles_arn
-  }
+  # set {
+  #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
+  #   value = module.cert_manager_irsa_role.iam_roles_arn
+  # }
   
   values = [
     "${file("helm_values/values-cert-manager.yaml")}"
@@ -37,21 +37,21 @@ resource "helm_release" "external_dns" {
   namespace = "kube-system"
 
 
-  set {
-    name  = "wait-for"
-    value = module.external_dns_irsa_role.iam_roles_arn
+  # set {
+  #   name  = "wait-for"
+  #   value = module.external_dns_irsa_role.iam_roles_arn
 
-  }
+  # }
 
   set {
     name  = "domainFilters"
     value = "{${local.domain}}"
   }
 
-  set {
-    name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
-    value = module.external_dns_irsa_role.iam_roles_arn
-  }
+  # set {
+  #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
+  #   value = module.external_dns_irsa_role.iam_roles_arn
+  # }
 
   values = [
     "${file("helm_values/values-external-dns.yaml")}"

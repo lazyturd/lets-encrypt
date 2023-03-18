@@ -9,7 +9,7 @@ module "eks" {
     vpc_id = module.myapp-vpc.vpc_id
     subnet_ids = module.myapp-vpc.private_subnets
 
-    manage_aws_auth = true
+    # manage_aws_auth = true
     enable_irsa = true
 
    cluster_addons = {

@@ -39,17 +39,17 @@ module "eks" {
         }
     }
 
-    # node_security_group_additional_rules = {
+    node_security_group_additional_rules = {
 
-    #     dns_all = {
-    #         description = "DNS ALL"
-    #         protocol = "-1"
-    #         from_port = 53
-    #         to_port = 53
-    #         type = "egress"
-    #         cidr_blocks = ["0.0.0.0/0"]
-    #         ipv6_cidr_blocks = ["::/0"]
-    #     }
+        dns_all = {
+            description = "DNS ALL"
+            protocol = "-1"
+            from_port = 53
+            to_port = 53
+            type = "egress"
+            cidr_blocks = ["0.0.0.0/0"]
+            ipv6_cidr_blocks = ["::/0"]
+        }
 
-    # }
+    }
 }

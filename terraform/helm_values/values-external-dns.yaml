@@ -379,7 +379,7 @@ priorityClassName: ""
 ##
 crd:
   ## Install and use the integrated DNSEndpoint CRD
-  create: false
+  create: true
   ## Change these to use an external DNSEndpoint CRD (E.g. from kubefed)
   apiversion: ""
   kind: ""

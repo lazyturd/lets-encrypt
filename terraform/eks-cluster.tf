@@ -9,6 +9,21 @@ module "eks" {
     vpc_id = module.myapp-vpc.vpc_id
     subnet_ids = module.myapp-vpc.private_subnets
 
+    manage_aws_auth = true
+    enable_irsa = true
+
+   cluster_addons = {
+    coredns = {
+      most_recent = true
+    }
+    kube-proxy = {
+      most_recent = true
+    }
+    vpc-cni = {
+      most_recent = true
+    }
+  } 
+
     tags = {
         environment = "development"
         application = "myapp"

@@ -18,6 +18,11 @@ resource "helm_release" "cert_manager" {
     value = "true"
   }
 
+  set {
+    name  = "version"
+    value = "v1.4.0"
+  }
+
   # set {
   #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
   #   value = module.cert_manager_irsa_role.iam_roles_arn
@@ -48,6 +53,10 @@ resource "helm_release" "external_dns" {
     value = "{${local.domain}}"
   }
 
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
   # set {
   #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
   #   value = module.external_dns_irsa_role.iam_roles_arn

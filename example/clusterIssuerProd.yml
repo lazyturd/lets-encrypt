@@ -15,7 +15,7 @@ spec:
           region: us-east-1
       selector:
         dnsZones:
-        - "example.com"
+        - "ayomide.shop"
     - http01:
         ingress:
           class: nginx

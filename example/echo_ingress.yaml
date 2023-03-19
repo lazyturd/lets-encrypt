@@ -2,16 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: echo-ingress
-#   annotations:
-#     cert-manager.io/cluster-issuer: "letsencrypt-staging"
-#     kubernetes.io/ingress.class: "nginx"
-# spec:
-#   tls:
-#   - hosts:
-#     - echo1.ayomide.shop
-#     # - echo2.example.com
-#     secretName: echo-tls
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+    - echo1.ayomide.shop
+    # - echo2.example.com
+    secretName: echo-tls
+# spec:
   rules:
   - host: echo1.ayomide.shop
     http:

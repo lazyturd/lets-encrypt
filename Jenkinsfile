@@ -30,7 +30,7 @@ pipeline {
                             // sh "kubectl apply -f echo_ingress.yaml"
                             // sh "kubectl create -f clusterIssuerStage.yml"
                             // sh "kubectl create -f clusterIssuerProd.yml"
-                            sh "kubectl apply -f echo_ingress.yaml"
+                            // sh "kubectl apply -f echo_ingress.yaml"
                             // sh "kubectl apply -f echo2.yaml"
                             // sh "kubectl apply -f nginx-deployment.yaml"
                             sh "wget --save-headers -O- echo1.ayomide.shop"

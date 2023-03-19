@@ -7,18 +7,18 @@ pipeline {
         AWS_DEFAULT_REGION    = "us-east-1"
     }
     stages {
-        stage('Create EKS Cluster') {
-            steps {
-                //
-                script {
-                    dir('terraform') {
-                        sh "terraform init"
-                        sh "terraform apply --auto-approve"
-                        // sh "terraform destroy --auto-approve"
-                    }
-                } 
-            }
-        }
+        // stage('Create EKS Cluster') {
+        //     steps {
+        //         //
+        //         script {
+        //             dir('terraform') {
+        //                 sh "terraform init"
+        //                 sh "terraform apply --auto-approve"
+        //                 // sh "terraform destroy --auto-approve"
+        //             }
+        //         } 
+        //     }
+        // }
         stage('deploy socks-shop') {
             steps {
                 // 
@@ -28,8 +28,8 @@ pipeline {
                             sh "aws eks update-kubeconfig --name myapp-eks-cluster"
                             sh "kubectl apply -f echo1.yaml"
                             sh "kubectl apply -f echo_ingress.yaml"
-                            sh "kubectl create -f clusterIssuerStage.yaml"
-                            sh "kubectl create -f clusterIssuerProd.yaml"
+                            sh "kubectl create -f clusterIssuerStage.yml"
+                            sh "kubectl create -f clusterIssuerProd.yml"
                             // sh "kubectl apply -f echo2.yaml"
                             // sh "kubectl apply -f nginx-deployment.yaml"
                         }

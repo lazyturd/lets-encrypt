@@ -4,7 +4,7 @@ resource "helm_release" "cert_manager" {
   chart      = "cert-manager"
 
   create_namespace = true
-  namespace = "kube-system"
+  namespace = "cert-manager"
 
 
   # set {
@@ -39,7 +39,7 @@ resource "helm_release" "external_dns" {
   chart      = "external-dns"
 
   create_namespace = true
-  namespace = "kube-system"
+  namespace = "cert-manager"
 
 
   # set {

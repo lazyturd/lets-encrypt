@@ -25,7 +25,7 @@ kind: Service
 metadata:
   name: nginx
   annotations:
-    external-dns.alpha.kubernetes,io/hostname: nginx.ayomide.shop
+    external-dns.alpha.kubernetes.io/hostname: nginx.ayomide.shop
   labels:
     app: nginx
 spec:
@@ -43,7 +43,7 @@ kind: Ingress
 metadata:
   name: nginx
   annotations:
-    cert/manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-staging
   labels:
     app: nginx
 spec:

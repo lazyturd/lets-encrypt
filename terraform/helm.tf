@@ -1,71 +1,71 @@
-# resource "helm_release" "cert_manager" {
-#   name       = "cert-manager"
-#   repository = "https://charts.jetstack.io"
-#   chart      = "cert-manager"
+resource "helm_release" "cert_manager" {
+  name       = "cert-manager"
+  repository = "https://charts.jetstack.io"
+  chart      = "cert-manager"
 
-#   create_namespace = true
-#   namespace = "kube-system"
+  create_namespace = true
+  namespace = "kube-system"
 
 
-#   # set {
-#   #   name  = "wait-for"
-#   #   value = module.cert_manager_irsa_role.iam_roles_arn
+  # set {
+  #   name  = "wait-for"
+  #   value = module.cert_manager_irsa_role.iam_roles_arn
 
-#   # }
+  # }
 
-#   set {
-#     name  = "installCRDs"
-#     value = "true"
-#   }
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
 
-#   set {
-#     name  = "version"
-#     value = "v1.4.0"
-#   }
+  set {
+    name  = "version"
+    value = "v1.4.0"
+  }
 
-#   # set {
-#   #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
-#   #   value = module.cert_manager_irsa_role.iam_roles_arn
-#   # }
+  # set {
+  #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
+  #   value = module.cert_manager_irsa_role.iam_roles_arn
+  # }
   
-#   values = [
-#     "${file("helm_values/values-cert-manager.yaml")}"
-#   ]
-# }
+  values = [
+    "${file("helm_values/values-cert-manager.yaml")}"
+  ]
+}
 
-# resource "helm_release" "external_dns" {
-#   name       = "external-dns"
-#   repository = "https://charts.bitnami.com/bitnami"
-#   chart      = "external-dns"
+resource "helm_release" "external_dns" {
+  name       = "external-dns"
+  repository = "https://charts.bitnami.com/bitnami"
+  chart      = "external-dns"
 
-#   create_namespace = true
-#   namespace = "kube-system"
+  create_namespace = true
+  namespace = "kube-system"
 
 
-#   # set {
-#   #   name  = "wait-for"
-#   #   value = module.external_dns_irsa_role.iam_roles_arn
+  # set {
+  #   name  = "wait-for"
+  #   value = module.external_dns_irsa_role.iam_roles_arn
 
-#   # }
+  # }
 
-#   set {
-#     name  = "domainFilters"
-#     value = "{${local.domain}}"
-#   }
+  set {
+    name  = "domainFilters"
+    value = "{${local.domain}}"
+  }
 
-#   set {
-#     name  = "installCRDs"
-#     value = "true"
-#   }
-#   # set {
-#   #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
-#   #   value = module.external_dns_irsa_role.iam_roles_arn
-#   # }
+  set {
+    name  = "installCRDs"
+    value = "true"
+  }
+  # set {
+  #   name  = "serviceAccount.annotations.eks\\.amazonaws\\.com\\/role-arn"
+  #   value = module.external_dns_irsa_role.iam_roles_arn
+  # }
 
-#   values = [
-#     "${file("helm_values/values-external-dns.yaml")}"
-#   ]
-# }
+  values = [
+    "${file("helm_values/values-external-dns.yaml")}"
+  ]
+}
 
 resource "helm_release" "nginx" {
   name  = "nginx-ingress"

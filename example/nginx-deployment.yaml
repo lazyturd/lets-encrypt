@@ -62,3 +62,5 @@ spec:
   - hosts:
     - nginx.ayomide.shop
     secretName: ayomide-shop-tls
+
+# XtdCNN4qDNYLbw.atlasv1.cnwcAeynCYgtzSwur9KBzK9BpadSyoTS8BQTeS55iBUjeKEL3CJNSgLir6dU2RLwKMg

@@ -62,9 +62,9 @@ resource "helm_release" "external_dns" {
   #   value = module.external_dns_irsa_role.iam_roles_arn
   # }
 
-  values = [
-    "${file("helm_values/values-external-dns.yaml")}"
-  ]
+  # values = [
+  #   "${file("helm_values/values-external-dns.yaml")}"
+  # ]
 }
 
 resource "helm_release" "nginx" {

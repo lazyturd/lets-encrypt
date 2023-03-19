@@ -68,10 +68,10 @@ resource "helm_release" "external_dns" {
 }
 
 resource "helm_release" "nginx" {
-  name  = "nginx-ingress"
+  name  = "ingress-nginx"
   repository = "https://kubernetes.github.io/ingress-nginx"
-  chart = "nginx-ingress"
+  chart = "ingress-nginx"
 
   create_namespace = true
-  namespace = "nginx-ingress"
+  namespace = "ingress-nginx"
 }
